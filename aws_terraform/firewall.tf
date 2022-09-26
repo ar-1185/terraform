@@ -1,8 +1,8 @@
-resource "upcloud_firewall_rules" "myapp_firewall" {
+resource "terraform_firewall_rules" "myapp_firewall" {
   
-  count      = length(upcloud_server.lb)
-  depends_on = [upcloud_server.lb[0],upcloud_server.lb[1]]
-  server_id  = upcloud_server.lb[count.index].id
+  count      = length(terraform_server.lb)
+  depends_on = [terraform_server.lb[0],terraform_server.lb[1]]
+  server_id  = terraform_server.lb[count.index].id
 
   firewall_rule {
     action                 = "accept"
