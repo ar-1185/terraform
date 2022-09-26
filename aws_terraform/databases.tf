@@ -1,4 +1,4 @@
-resource "upcloud_server" "db1" {
+resource "terraform_server" "db1" {
   zone     = var.zone # de-fra1
   hostname = "db1.startup.io"
   plan     = var.plans["db"] # 4xCPU-8GB
@@ -28,11 +28,11 @@ resource "upcloud_server" "db1" {
 
   network_interface {
     type    = "private"
-    network = upcloud_network.db_network.id
+    network = terraform_network.db_network.id
   }
 }
 
-resource "upcloud_server" "db2" {
+resource "terraform_server" "db2" {
   zone     = var.zone # de-fra1
   hostname = "db2.startup.io"
   plan     = var.plans["db"] # 4xCPU-8GB
@@ -62,6 +62,6 @@ resource "upcloud_server" "db2" {
 
   network_interface {
     type    = "private"
-    network = upcloud_network.db_network.id
+    network = terraform_network.db_network.id
   }
 }
