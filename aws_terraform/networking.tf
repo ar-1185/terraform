@@ -1,4 +1,4 @@
-resource "upcloud_network" "app_network" {
+resource "terraform_network" "app_network" {
   name = "Application network"
   zone = var.zone # de-fra1
 
@@ -9,7 +9,7 @@ resource "upcloud_network" "app_network" {
   }
 }
 
-resource "upcloud_network" "db_network" {
+resource "terraform_network" "db_network" {
   name = "Database network"
   zone = var.zone # de-fra1
 
@@ -20,8 +20,8 @@ resource "upcloud_network" "db_network" {
   }
 }
 
-resource "upcloud_floating_ip_address" "lb_vip" {
-  depends_on = [upcloud_server.lb[0]]
+resource "terraform_floating_ip_address" "lb_vip" {
+  depends_on = [terraform_server.lb[0]]
   zone        = var.zone # de-fra1
-  mac_address = upcloud_server.lb[0].network_interface[0].mac_address
+  mac_address = terraform_server.lb[0].network_interface[0].mac_address
 }
