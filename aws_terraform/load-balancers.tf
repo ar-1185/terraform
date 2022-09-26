@@ -1,4 +1,4 @@
-resource "upcloud_server" "lb" {
+resource "terraform_server" "lb" {
   count    = 2 # Number of cloud instances to deploy
   zone     = var.zone # de-fra1
   hostname = "lb${count.index + 1}.startup.io"
@@ -27,6 +27,6 @@ resource "upcloud_server" "lb" {
   
   network_interface {
     type    = "private"
-    network = upcloud_network.app_network.id
+    network = terraform_network.app_network.id
   }
 }
