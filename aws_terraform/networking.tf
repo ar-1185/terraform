@@ -22,6 +22,6 @@ resource "terraform_network" "db_network" {
 
 resource "terraform_floating_ip_address" "lb_vip" {
   depends_on = [terraform_server.lb[0]]
-  zone        = var.zone # de-fra1
+  zone        = var.zone #us-central1
   mac_address = terraform_server.lb[0].network_interface[0].mac_address
 }
