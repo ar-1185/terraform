@@ -1,5 +1,5 @@
 resource "terraform_server" "app" {
-  zone     = var.zone # de-fra1
+  zone     = var.zone #us-central1
   hostname = "app${count.index + 1}.startup.io"
   plan     = var.plans["app"] # 2xCPU-4GB
   count    = var.app-scaling # default 3 as set in the variables
