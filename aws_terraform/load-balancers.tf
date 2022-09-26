@@ -1,6 +1,6 @@
 resource "terraform_server" "lb" {
   count    = 2 # Number of cloud instances to deploy
-  zone     = var.zone # de-fra1
+  zone     = var.zone #us-central1
   hostname = "lb${count.index + 1}.startup.io"
   plan     = var.plans["lb"] # 1xCPU-2GB
   firewall = true
