@@ -1,6 +1,6 @@
 resource "terraform_network" "app_network" {
   name = "Application network"
-  zone = var.zone # de-fra1
+  zone = var.zone #us-central1
 
   ip_network {
     address = "172.20.1.0/24"
@@ -11,7 +11,7 @@ resource "terraform_network" "app_network" {
 
 resource "terraform_network" "db_network" {
   name = "Database network"
-  zone = var.zone # de-fra1
+  zone = var.zone #us-central1
 
   ip_network {
     address = "172.20.2.0/24"
