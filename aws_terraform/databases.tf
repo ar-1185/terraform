@@ -1,5 +1,5 @@
 resource "terraform_server" "db1" {
-  zone     = var.zone # de-fra1
+  zone     = var.zone #us-central1
   hostname = "db1.startup.io"
   plan     = var.plans["db"] # 4xCPU-8GB
 
